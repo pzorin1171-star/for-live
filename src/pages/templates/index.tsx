@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { 
-  getAllCategories, 
-  searchTemplates, 
-  getTemplatesByCategory, 
-  getAllTemplates 
-} from '@/lib/search';
+import { getAllCategories, searchTemplates, getTemplatesByCategory, getAllTemplates } from '@/lib/search';
 import TemplateCard from '@/components/templates/TemplateCard';
 import Search from '@/components/ui/Search';
 import type { Template } from '@/types/template';
@@ -48,7 +43,6 @@ export default function TemplatesPage({
       <h1 className="text-3xl font-bold mb-6">Библиотека шаблонов</h1>
 
       <div className="flex flex-col md:flex-row gap-6">
-        {/* Боковая панель с категориями */}
         <aside className="md:w-64 flex-shrink-0">
           <h2 className="font-semibold text-lg mb-3">Категории</h2>
           <ul className="space-y-2">
@@ -77,7 +71,6 @@ export default function TemplatesPage({
           </ul>
         </aside>
 
-        {/* Основной контент */}
         <div className="flex-1">
           <div className="mb-6">
             <Search onSearch={handleSearch} placeholder="Поиск по названию или описанию..." />
