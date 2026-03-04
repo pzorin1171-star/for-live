@@ -4,7 +4,6 @@ import type { Template } from '@/types/template';
 
 const templates = templatesData as Template[];
 
-// Настройки поиска Fuse.js
 const fuseOptions = {
   keys: ['title', 'description', 'categoryName'],
   threshold: 0.3,
