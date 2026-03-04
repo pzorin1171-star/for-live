@@ -5,7 +5,7 @@ import { getAllTemplates } from '@/lib/search'; // будет ниже
 import { getAllPosts } from '@/lib/blog'; // будет ниже
 import type { Template } from '@/types/template';
 import type { BlogPost } from '@/types/blog';
-
+import { getAllTemplates } from '@/lib/search';
 interface HomeProps {
   recentTemplates: Template[];
   recentPosts: BlogPost[];
