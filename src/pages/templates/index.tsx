@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { getAllCategories, searchTemplates, getTemplatesByCategory } from '@/lib/search';
+import { 
+  getAllCategories, 
+  searchTemplates, 
+  getTemplatesByCategory, 
+  getAllTemplates 
+} from '@/lib/search';
 import TemplateCard from '@/components/templates/TemplateCard';
 import Search from '@/components/ui/Search';
 import type { Template } from '@/types/template';
