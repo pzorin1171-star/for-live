@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 interface SearchProps {
   placeholder?: string;
   onSearch?: (query: string) => void;
+  className?: string;
 }
 
-const Search: React.FC<SearchProps> = ({ placeholder = 'Поиск...', onSearch }) => {
+const Search: React.FC<SearchProps> = ({ 
+  placeholder = 'Поиск шаблонов...', 
+  onSearch,
+  className = '' 
+}) => {
   const [query, setQuery] = useState('');
   const router = useRouter();
 
@@ -20,17 +26,18 @@ const Search: React.FC<SearchProps> = ({ placeholder = 'Поиск...', onSearch
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex">
+    <form onSubmit={handleSubmit} className={`relative ${className}`}>
       <input
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary"
+        className="w-full px-5 py-4 pl-14 text-lg rounded-full border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all shadow-lg"
       />
+      <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
       <button
         type="submit"
-        className="px-4 py-2 bg-primary text-white rounded-r-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-primary"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium"
       >
         Найти
       </button>
