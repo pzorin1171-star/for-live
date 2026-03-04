@@ -7,13 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb', // синий
-        secondary: '#4b5563', // серый
+        primary: '#2563eb',
+        secondary: '#4b5563',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
 }
