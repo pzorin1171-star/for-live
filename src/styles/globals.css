@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,13 +9,10 @@
     @apply bg-gray-50 text-gray-900 antialiased;
   }
   h1 {
-    @apply text-4xl font-bold tracking-tight md:text-5xl;
+    @apply text-3xl font-bold md:text-4xl;
   }
   h2 {
-    @apply text-3xl font-semibold tracking-tight md:text-4xl;
-  }
-  h3 {
-    @apply text-2xl font-semibold;
+    @apply text-2xl font-semibold md:text-3xl;
   }
 }
 
@@ -25,6 +22,6 @@
   }
   
   .card-hover {
-    @apply hover:shadow-xl hover:-translate-y-1 transition-all duration-300;
+    @apply hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300;
   }
 }
