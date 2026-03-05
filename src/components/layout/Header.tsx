@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
   { name: 'Главная', href: '/' },
   { name: 'Шаблоны', href: '/templates' },
-  { name: 'Ипотечный калькулятор', href: '/calculator' },
+  { name: 'Калькулятор', href: '/calculator' },
   { name: 'Блог', href: '/blog' },
 ];
 
@@ -14,12 +15,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
+    <header className="bg-white shadow-sm sticky top-0 z-50">
+      <nav className="container-custom" aria-label="Top">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-primary">
-              Документы Online
+            <Link href="/" className="text-xl font-semibold text-primary">
+              Документы Онлайн
             </Link>
           </div>
           <div className="hidden md:flex space-x-8">
@@ -27,10 +28,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-sm font-medium ${
+                className={`text-sm font-medium transition-colors hover:text-primary ${
                   router.pathname === item.href
                     ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
+                    : 'text-gray-700'
                 }`}
               >
                 {item.name}
@@ -40,30 +41,24 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none"
+              className="text-gray-700 hover:text-primary focus:outline-none p-2"
+              aria-label="Toggle menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+              {isMenuOpen ? (
+                <XMarkIcon className="h-6 w-6" />
+              ) : (
+                <Bars3Icon className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
-        {/* Мобильное меню */}
         {isMenuOpen && (
-          <div className="md:hidden py-2">
+          <div className="md:hidden py-2 border-t border-gray-100">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block py-2 text-base font-medium ${
-                  router.pathname === item.href
-                    ? 'text-primary'
-                    : 'text-gray-700 hover:text-primary'
-                }`}
+                className="block py-2 text-gray-700 hover:text-primary"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
