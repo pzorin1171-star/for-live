@@ -8,10 +8,10 @@ interface SearchProps {
   className?: string;
 }
 
-const Search: React.FC<SearchProps> = ({ 
-  placeholder = 'Поиск шаблонов...', 
+const Search: React.FC<SearchProps> = ({
+  placeholder = 'Поиск шаблонов...',
   onSearch,
-  className = '' 
+  className = ''
 }) => {
   const [query, setQuery] = useState('');
   const router = useRouter();
@@ -32,12 +32,12 @@ const Search: React.FC<SearchProps> = ({
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-5 py-4 pl-14 text-lg rounded-full border border-gray-200 focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all shadow-lg"
+        className="w-full px-5 py-3 pl-12 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all shadow-sm"
       />
-      <MagnifyingGlassIcon className="absolute left-5 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+      <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
       <button
         type="submit"
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-white px-4 py-1.5 rounded-md hover:bg-primary-dark transition-colors text-sm font-medium"
       >
         Найти
       </button>
